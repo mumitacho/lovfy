@@ -246,14 +246,16 @@
         <p>Um vídeo curto mostrando a instalação e o uso da extensão.</p>
       </div>
 
-      <!-- Quando o vídeo estiver pronto, substitua o .video-placeholder por um <video> ou <iframe> mantendo a classe "video-frame" para preservar o espaçamento -->
+      <!-- Para trocar o vídeo, substitua o número após "video/" pelo ID do novo vídeo no Vimeo -->
       <div class="video-frame" data-reveal>
-        <div class="video-placeholder" role="img" aria-label="Vídeo de demonstração em breve">
-          <span class="video-placeholder__play" aria-hidden="true">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
-          </span>
-          <span class="video-placeholder__title">Vídeo de demonstração</span>
-          <span class="badge badge--muted">Em breve</span>
+        <div class="video-embed">
+          <iframe
+            src="https://player.vimeo.com/video/1214653438?app_id=122963&title=0&byline=0&portrait=0"
+            title="Vídeo de demonstração da Lovfy"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
         </div>
       </div>
     </div>
