@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Lovfy - by @mumitacho",
+  "version": "1.0.0",
+  "description": "Cliente de chat integrado para conversar com a IA de projetos Lovable.dev diretamente do navegador, incluindo envio de arquivos.",
+  "permissions": [
+    "activeTab",
+    "cookies",
+    "storage",
+    "tabs",
+    "system.display"
+  ],
+  "host_permissions": [
+    "https://*.lovable.dev/*",
+    "https://api.lovable.dev/*",
+    "https://lovable.dev/*",
+    "https://storage.googleapis.com/*",
+    "https://*.storage.googleapis.com/*",
+    "https://*.googleapis.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "48": "icons/48.png",
+    "64": "icons/64.png",
+    "128": "icons/128.png"
+  },
+  "action": {
+    "default_title": "Lovfy - by @mumitacho",
+    "default_icon": {
+      "48": "icons/48.png",
+      "64": "icons/64.png",
+      "128": "icons/128.png"
+    }
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <title>Lovfy - by @mumitacho</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <div class="app">
+    <header class="header">
+      <div class="header-title">
+        <div class="header-title-left">
+          <img class="header-icon" src="icons/48.png" alt="" draggable="false" />
+          <div class="header-title-text">
+            <span class="header-title-main">Lovfy</span>
+            <span class="header-title-sub">by @mumitacho</span>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button class="creator-btn" id="creatorBtn" type="button" title="Abrir o Instagram do criador">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+              <circle cx="12" cy="12" r="3.6"></circle>
+              <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"></circle>
+            </svg>
+            <span>Criador</span>
+          </button>
+          <button class="icon-btn minimize-btn" id="minimizeBtn" type="button" title="Minimizar" data-no-drag>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="project-id" id="projectId">
+        <span class="project-id-dot"></span>
+        <span class="project-id-text" id="projectIdText">Detectando projeto...</span>
+      </div>
+    </header>
+
+    <main class="messages" id="messages">
+      <div class="empty-state" id="emptyState">
+        <div class="empty-state-icon">
+          <img src="icons/48.png" alt="" draggable="false" />
+        </div>
+        <p class="empty-state-title">Nenhuma mensagem ainda</p>
+        <p class="empty-state-subtitle">Envie algo para começar a conversar com a IA do projeto.</p>
+      </div>
+    </main>
+
+    <div class="file-preview" id="filePreview"></div>
+
+    <footer class="composer">
+      <div class="composer-row">
+        <button class="icon-btn" id="attachBtn" type="button" title="Anexar arquivos">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21.44 11.05l-9.19 9.19a5.5 5.5 0 0 1-7.78-7.78l9.2-9.19a3.67 3.67 0 0 1 5.18 5.19l-9.2 9.19a1.83 1.83 0 0 1-2.59-2.59l8.49-8.48"></path>
+          </svg>
+        </button>
+        <textarea id="messageInput" placeholder="Envie uma mensagem para o Lovfy..." rows="1"></textarea>
+        <button class="send-btn" id="sendBtn" type="button" title="Enviar mensagem">
+          <span id="sendBtnLabel">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="19" x2="12" y2="5"></line>
+              <polyline points="6 11 12 5 18 11"></polyline>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <input type="file" id="fileInput" multiple hidden />
+    </footer>
+
+    <div class="status-bar" id="statusBar"></div>
+  </div>
+
+  <button class="minimized-fab" id="minimizedFab" type="button" title="Abrir Lovfy" data-no-drag>
+    <img src="icons/48.png" alt="" draggable="false" />
+  </button>
+
+  <script src="popup.js"></script>
+</body>
+</html>
