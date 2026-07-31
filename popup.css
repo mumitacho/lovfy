@@ -225,6 +225,20 @@ html.wm-dragging * {
   transform: translateY(0) scale(0.97);
 }
 
+/* "Apoiar" herda toda a aparência de .creator-btn; só o hover muda para um
+   scale suave em vez do translateY usado no botão "Criador". */
+.support-btn {
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.support-btn:hover {
+  transform: scale(1.03);
+}
+
+.support-btn:active {
+  transform: scale(0.98);
+}
+
 .project-id {
   display: inline-flex;
   align-items: center;

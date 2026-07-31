@@ -51,6 +51,7 @@
     sendBtnLabel: document.getElementById('sendBtnLabel'),
     statusBar: document.getElementById('statusBar'),
     creatorBtn: document.getElementById('creatorBtn'),
+    supportBtn: document.getElementById('supportBtn'),
     header: document.querySelector('.header'),
     minimizeBtn: document.getElementById('minimizeBtn'),
     minimizedFab: document.getElementById('minimizedFab')
@@ -281,6 +282,12 @@
     if (el.creatorBtn) {
       el.creatorBtn.addEventListener('click', () => {
         window.open('https://www.instagram.com/mumitacho/', '_blank');
+      });
+    }
+
+    if (el.supportBtn) {
+      el.supportBtn.addEventListener('click', () => {
+        window.open('https://imgur.com/a/p036IJj', '_blank', 'noopener,noreferrer');
       });
     }
 
