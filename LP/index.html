@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lovfy — Créditos gratuitos para o Lovable</title>
-<meta name="description" content="Lovfy é uma extensão gratuita que gera créditos para o Lovable. Instalação simples, sem custo, mantida pela comunidade.">
+<meta name="description" content="Lovfy é a extensão gratuita que gera créditos para o Lovable. Instalação em menos de 1 minuto, atualizações constantes e mantida pela comunidade.">
 <meta name="theme-color" content="#0A0A0A">
 
 <!-- Open Graph -->
@@ -13,6 +13,7 @@
 <meta property="og:description" content="Desenvolva sem gastar créditos utilizando nossa extensão. Gratuita, simples e mantida pela comunidade.">
 <meta property="og:image" content="https://lovfy.online/imagens/Logo.png">
 <meta property="og:url" content="https://lovfy.online/">
+<meta property="og:site_name" content="Lovfy">
 <meta property="og:locale" content="pt_BR">
 
 <!-- Twitter Card -->
@@ -31,6 +32,7 @@
 
 <link rel="stylesheet" href="styles.css">
 
+<!-- Schema.org: SoftwareApplication + avaliações reais exibidas na seção de depoimentos -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -44,11 +46,55 @@
     "price": "0",
     "priceCurrency": "BRL"
   },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "4"
+  },
+  "review": [
+    { "@type": "Review", "author": { "@type": "Person", "name": "Luis Gustavo" }, "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "Funcionou perfeitamente. Em poucos minutos eu já estava utilizando normalmente." },
+    { "@type": "Review", "author": { "@type": "Person", "name": "Carlos Henrique" }, "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "Economizei vários créditos utilizando a extensão. Recomendo demais." },
+    { "@type": "Review", "author": { "@type": "Person", "name": "Marina Oliveira" }, "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "Instalação extremamente simples e atualizações frequentes." },
+    { "@type": "Review", "author": { "@type": "Person", "name": "Felipe Costa" }, "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "Era exatamente o que eu procurava para continuar meus projetos." }
+  ],
   "url": "https://lovfy.online/"
+}
+</script>
+
+<!-- Schema.org: FAQPage, espelha a seção de Perguntas Frequentes -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "A extensão é segura?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sim. Ela funciona apenas para oferecer os créditos da extensão e não coleta dados pessoais." }
+    },
+    {
+      "@type": "Question",
+      "name": "Funciona em quais navegadores?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Funciona em qualquer navegador baseado em Chromium que permita instalar extensões manualmente." }
+    },
+    {
+      "@type": "Question",
+      "name": "Como instalar?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Abra Extensões, clique em Gerenciar Extensões, ative o Modo Desenvolvedor e clique em Carregar sem compactação. Pronto." }
+    },
+    {
+      "@type": "Question",
+      "name": "Como obtenho suporte?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Entre em contato pelo WhatsApp: +55 81 99663-1506." }
+    }
+  ]
 }
 </script>
 </head>
 <body>
+
+<!-- Barra fina de carregamento (some sozinha após o load, sem bloquear a renderização) -->
+<div class="loading-bar" id="loadingBar" aria-hidden="true"></div>
 
 <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
@@ -60,8 +106,9 @@
 
     <nav class="nav" id="nav" aria-label="Navegação principal">
       <a href="#beneficios">Benefícios</a>
-      <a href="#como-funciona">Como funciona</a>
-      <a href="#apoie">Apoie o projeto</a>
+      <a href="#como-instalar">Como instalar</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#faq">FAQ</a>
     </nav>
 
     <div class="header__actions">
@@ -101,8 +148,34 @@
           </svg>
           Baixar Extensão
         </a>
-        <a class="link-ghost" href="#como-funciona">Ver como funciona ↓</a>
+        <a class="link-ghost" href="#como-instalar">Ver como instalar ↓</a>
       </div>
+    </div>
+  </section>
+
+  <!-- CONTADOR DE DOWNLOADS + BADGES DE CONFIANÇA -->
+  <section class="trust" aria-label="Números e garantias">
+    <div class="container trust__inner">
+      <div class="counter" data-reveal>
+        <!-- ALTERE APENAS O NÚMERO "data-target" ABAIXO PARA ATUALIZAR O CONTADOR -->
+        <span class="counter__number" data-target="1287">1.287</span>
+        <span class="counter__label">Downloads</span>
+      </div>
+
+      <ul class="badges">
+        <li class="badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 11-3.2-6.9"></path><path d="M21 3v6h-6"></path></svg>
+          Atualizado regularmente
+        </li>
+        <li class="badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
+          Compatível com a versão mais recente do Lovable
+        </li>
+        <li class="badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="12" rx="1"></rect><path d="M7 8V6a5 5 0 0110 0v2"></path></svg>
+          Gratuito
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -111,6 +184,7 @@
     <div class="container">
       <div class="section__head" data-reveal>
         <h2>Feita para quem constrói todos os dias</h2>
+        <span class="divider" aria-hidden="true"></span>
         <p>Tudo o que você precisa para criar mais, gastando menos.</p>
       </div>
 
@@ -163,41 +237,100 @@
     </div>
   </section>
 
-  <!-- COMO FUNCIONA -->
-  <section class="section section--alt" id="como-funciona">
+  <!-- VÍDEO / VSL -->
+  <section class="section section--alt" id="video">
     <div class="container">
       <div class="section__head" data-reveal>
-        <h2>Como funciona</h2>
-        <p>Do download ao primeiro projeto, em quatro passos simples.</p>
+        <h2>Veja a Lovfy em ação</h2>
+        <span class="divider" aria-hidden="true"></span>
+        <p>Um vídeo curto mostrando a instalação e o uso da extensão.</p>
       </div>
 
-      <ol class="steps">
-        <li class="step" data-reveal>
-          <span class="step__number">1</span>
-          <h3>Baixe a extensão</h3>
-          <p>Faça o download do arquivo pelo nosso link oficial.</p>
+      <!-- Quando o vídeo estiver pronto, substitua o .video-placeholder por um <video> ou <iframe> mantendo a classe "video-frame" para preservar o espaçamento -->
+      <div class="video-frame" data-reveal>
+        <div class="video-placeholder" role="img" aria-label="Vídeo de demonstração em breve">
+          <span class="video-placeholder__play" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
+          </span>
+          <span class="video-placeholder__title">Vídeo de demonstração</span>
+          <span class="badge badge--muted">Em breve</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO INSTALAR -->
+  <section class="section" id="como-instalar">
+    <div class="container">
+      <div class="section__head" data-reveal>
+        <h2>Como instalar</h2>
+        <span class="divider" aria-hidden="true"></span>
+        <p>Quatro passos simples, direto no seu navegador.</p>
+      </div>
+
+      <ol class="install-steps">
+        <li class="install-step" data-reveal>
+          <span class="install-step__number">1</span>
+          <div class="install-step__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 10h-2.5a1.5 1.5 0 010-3H20V5a2 2 0 00-2-2h-2v2.5a1.5 1.5 0 01-3 0V3H8v2.5a1.5 1.5 0 01-3 0V3H4a2 2 0 00-2 2v2h2.5a1.5 1.5 0 010 3H2v2h2.5a1.5 1.5 0 010 3H2v2a2 2 0 002 2h2.5a1.5 1.5 0 013 0V21h5v-2.5a1.5 1.5 0 013 0V21h2a2 2 0 002-2v-2h-2.5a1.5 1.5 0 010-3H22v-2h-2z"></path>
+            </svg>
+          </div>
+          <h3>Clique no ícone de extensões</h3>
+          <p>Localize o ícone de peça de quebra-cabeça na barra do navegador.</p>
         </li>
-        <li class="step" data-reveal>
-          <span class="step__number">2</span>
-          <h3>Instale no navegador</h3>
-          <p>Ative a extensão em segundos, sem configuração complexa.</p>
+        <li class="install-step" data-reveal>
+          <span class="install-step__number">2</span>
+          <div class="install-step__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09a1.65 1.65 0 00-1-1.51 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09a1.65 1.65 0 001.51-1 1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"></path>
+            </svg>
+          </div>
+          <h3>Clique em "Gerenciar extensões"</h3>
+          <p>Abra o painel de gerenciamento de extensões do navegador.</p>
         </li>
-        <li class="step" data-reveal>
-          <span class="step__number">3</span>
-          <h3>Abra o Lovable</h3>
-          <p>Acesse sua conta normalmente na plataforma.</p>
+        <li class="install-step" data-reveal>
+          <span class="install-step__number">3</span>
+          <div class="install-step__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="7" width="20" height="10" rx="5"></rect>
+              <circle cx="16" cy="12" r="3"></circle>
+            </svg>
+          </div>
+          <h3>Ative o Modo Desenvolvedor</h3>
+          <p>Encontre o botão no canto superior direito da página.</p>
         </li>
-        <li class="step" data-reveal>
-          <span class="step__number">4</span>
-          <h3>Comece a utilizar</h3>
-          <p>Aproveite os créditos gratuitos direto no seu projeto.</p>
+        <li class="install-step" data-reveal>
+          <span class="install-step__number">4</span>
+          <div class="install-step__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 7a2 2 0 012-2h4l2 2h6a2 2 0 012 2v1H3z"></path>
+              <path d="M3 8h18l-1.5 10a2 2 0 01-2 2h-11a2 2 0 01-2-2L3 8z"></path>
+            </svg>
+          </div>
+          <h3>Carregue sem compactação</h3>
+          <p>Clique em "Carregar sem compactação" e selecione a pasta da extensão.</p>
         </li>
       </ol>
+
+      <p class="install-done" data-reveal>Depois disso, a Lovfy estará pronta para uso.</p>
+
+      <div class="callouts" data-reveal>
+        <div class="callout">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>
+          <p><strong>A extensão leva menos de 1 minuto para ser instalada.</strong></p>
+        </div>
+        <div class="callout">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle></svg>
+          <p><strong>Precisa de ajuda?</strong> Assista ao tutorial completo em nosso Instagram <a href="https://www.instagram.com/lovfy__/" target="_blank" rel="noopener noreferrer">@Lovfy__</a>.</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- POR QUE UTILIZAR -->
-  <section class="section" id="por-que">
+  <section class="section section--alt" id="por-que">
     <div class="container why">
       <div class="why__text" data-reveal>
         <h2>Por que utilizar a Lovfy?</h2>
@@ -230,22 +363,219 @@
     </div>
   </section>
 
+  <!-- DEPOIMENTOS -->
+  <section class="section" id="depoimentos">
+    <div class="container">
+      <div class="section__head" data-reveal>
+        <h2>Quem já usa recomenda</h2>
+        <span class="divider" aria-hidden="true"></span>
+        <p>Depoimentos de quem já economiza créditos com a Lovfy.</p>
+      </div>
+
+      <div class="grid grid--4 grid--testimonials">
+        <figure class="testimonial" data-reveal>
+          <div class="testimonial__stars" role="img" aria-label="5 de 5 estrelas">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z"></path></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z"></path></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z"></path></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z"></path></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z"></path></svg>
+          </div>
+          <blockquote>"Funcionou perfeitamente. Em poucos minutos eu já estava utilizando normalmente."</blockquote>
+          <figcaption>
+            <span class="testimonial__avatar" aria-hidden="true">LG</span>
+            <span class="testimonial__name">Luis Gustavo <span class="testimonial__handle">@mumitacho</span></span>
+          </figcaption>
+        </figure>
+
+        <figure class="testimonial" data-reveal>
+          <div class="testimonial__stars" role="img" aria-label="5 de 5 estrelas">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z"></path></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z"></path></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z"></path></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z"></path></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z"></path></svg>
+          </div>
+          <blockquote>"Economizei vários créditos utilizando a extensão. Recomendo demais."</blockquote>
+          <figcaption>
+            <span class="testimonial__avatar" aria-hidden="true">CH</span>
+            <span class="testimonial__name">Carlos Henrique</span>
+          </figcaption>
+        </figure>
+
+        <figure class="testimonial" data-reveal>
+          <div class="testimonial__stars" role="img" aria-label="5 de 5 estrelas">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z"></path></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z"></path></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z"></path></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z"></path></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z"></path></svg>
+          </div>
+          <blockquote>"Instalação extremamente simples e atualizações frequentes."</blockquote>
+          <figcaption>
+            <span class="testimonial__avatar" aria-hidden="true">MO</span>
+            <span class="testimonial__name">Marina Oliveira</span>
+          </figcaption>
+        </figure>
+
+        <figure class="testimonial" data-reveal>
+          <div class="testimonial__stars" role="img" aria-label="5 de 5 estrelas">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z"></path></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z"></path></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z"></path></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z"></path></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z"></path></svg>
+          </div>
+          <blockquote>"Era exatamente o que eu procurava para continuar meus projetos."</blockquote>
+          <figcaption>
+            <span class="testimonial__avatar" aria-hidden="true">FC</span>
+            <span class="testimonial__name">Felipe Costa</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section--alt" id="faq">
+    <div class="container container--narrow">
+      <div class="section__head" data-reveal>
+        <h2>Perguntas frequentes</h2>
+        <span class="divider" aria-hidden="true"></span>
+      </div>
+
+      <div class="accordion" data-reveal>
+        <div class="accordion__item">
+          <h3>
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">
+              A extensão é segura?
+              <svg class="accordion__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+            </button>
+          </h3>
+          <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+            <div class="accordion__panel-inner">
+              <p>Sim. Ela funciona apenas para oferecer os créditos da extensão e não coleta dados pessoais.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion__item">
+          <h3>
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">
+              Funciona em quais navegadores?
+              <svg class="accordion__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+            </button>
+          </h3>
+          <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+            <div class="accordion__panel-inner">
+              <p>Funciona em qualquer navegador baseado em Chromium que permita instalar extensões manualmente.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion__item">
+          <h3>
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">
+              Como instalar?
+              <svg class="accordion__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+            </button>
+          </h3>
+          <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+            <div class="accordion__panel-inner">
+              <p>A instalação é simples:</p>
+              <ul>
+                <li>Abra Extensões.</li>
+                <li>Clique em Gerenciar Extensões.</li>
+                <li>Ative o Modo Desenvolvedor.</li>
+                <li>Clique em Carregar sem compactação.</li>
+              </ul>
+              <p>Pronto.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion__item">
+          <h3>
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="faq-panel-4" id="faq-trigger-4">
+              Como obtenho suporte?
+              <svg class="accordion__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+            </button>
+          </h3>
+          <div class="accordion__panel" id="faq-panel-4" role="region" aria-labelledby="faq-trigger-4">
+            <div class="accordion__panel-inner">
+              <p>Entre em contato pelo WhatsApp: <a href="https://wa.me/5581996631506" target="_blank" rel="noopener noreferrer">+55 81 99663-1506</a>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUPORTE -->
+  <section class="section" id="suporte">
+    <div class="container container--narrow">
+      <div class="support-simple" data-reveal>
+        <h2>Precisa de ajuda?</h2>
+        <p>Se tiver qualquer dúvida sobre instalação, funcionamento ou atualizações da extensão, entre em contato pelo WhatsApp.</p>
+        <a class="btn btn--primary btn--lg" href="https://wa.me/5581996631506" target="_blank" rel="noopener noreferrer">
+          <svg class="btn__icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5.05-1.36A10 10 0 1012 2zm5.6 14.3c-.24.66-1.4 1.26-1.94 1.3-.5.05-1.13.07-1.83-.11-.42-.11-.96-.3-1.65-.6-2.9-1.25-4.8-4.16-4.94-4.36-.14-.2-1.18-1.57-1.18-3 0-1.42.75-2.12 1.02-2.4.26-.29.57-.36.76-.36h.55c.18 0 .42-.03.64.49.24.58.8 2 .87 2.14.07.14.11.3.02.49-.09.19-.14.3-.28.46-.14.16-.29.36-.42.48-.14.14-.28.28-.12.56.16.28.72 1.19 1.55 1.93 1.06.95 1.96 1.24 2.24 1.38.28.14.45.12.62-.07.17-.2.71-.83.9-1.11.19-.28.38-.23.63-.14.26.09 1.65.78 1.93.92.28.14.47.21.54.33.07.12.07.68-.17 1.34z"></path></svg>
+          Chamar no WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMUNIDADE -->
+  <section class="section section--alt" id="comunidade">
+    <div class="container">
+      <div class="section__head" data-reveal>
+        <h2>Comunidade Lovfy</h2>
+        <span class="divider" aria-hidden="true"></span>
+        <p>Em breve teremos uma comunidade exclusiva no Discord e Telegram para compartilhar novidades, atualizações e suporte.</p>
+      </div>
+
+      <div class="community" data-reveal>
+        <div class="community__item" aria-disabled="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M8 9a2 2 0 100 4 2 2 0 000-4z"></path>
+            <path d="M16 9a2 2 0 100 4 2 2 0 000-4z"></path>
+            <path d="M5.5 6.5C7 5.5 9 5 12 5s5 .5 6.5 1.5L20 15c-1.8 1.3-4.6 2-8 2s-6.2-.7-8-2l1.5-8.5z"></path>
+          </svg>
+          <span>Discord</span>
+          <span class="badge badge--muted">Em breve</span>
+        </div>
+        <div class="community__item" aria-disabled="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 2L11 13"></path>
+            <path d="M22 2l-7 20-4-9-9-4 20-7z"></path>
+          </svg>
+          <span>Telegram</span>
+          <span class="badge badge--muted">Em breve</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- APOIE O PROJETO -->
-  <section class="section section--alt" id="apoie">
+  <section class="section" id="apoie">
     <div class="container">
       <div class="support-card" data-reveal>
         <div class="support-card__text">
           <h2>Apoie este projeto</h2>
           <p>
-            A Lovfy é gratuita e mantida pela comunidade. Caso ela tenha
-            ajudado você, considere contribuir com qualquer valor para
-            manter o projeto atualizado.
+            A Lovfy é um projeto gratuito desenvolvido para ajudar a comunidade.
+            Se ela facilitou seu trabalho e você deseja apoiar futuras melhorias,
+            considere fazer uma contribuição de qualquer valor.
           </p>
-          <p class="support-card__note">Qualquer valor ajuda <span class="heart">♥</span></p>
+          <p>
+            Cada contribuição ajuda a manter o projeto atualizado e permite
+            adicionar novas funcionalidades.
+          </p>
+          <p class="support-card__note">Muito obrigado pelo seu apoio <span class="heart">♥</span></p>
         </div>
 
         <div class="support-card__qr">
-          <img src="imagens/qrcode-pix.png" alt="QR Code Pix para contribuir com o projeto Lovfy" width="220" height="220">
+          <img src="imagens/qrcode-pix.png" alt="QR Code Pix para contribuir com o projeto Lovfy" width="220" height="220" loading="lazy">
           <span>Aponte a câmera do seu banco</span>
         </div>
       </div>
@@ -267,10 +597,26 @@
 
 <footer class="footer">
   <div class="container footer__inner">
-    <img src="imagens/Logo.png" alt="Lovfy" width="72" height="72">
+    <img src="imagens/Logo.png" alt="Lovfy" width="72" height="72" loading="lazy">
+
+    <nav class="footer__nav" aria-label="Navegação do rodapé">
+      <a href="#beneficios">Benefícios</a>
+      <a href="#como-instalar">Como instalar</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#faq">FAQ</a>
+      <a href="#comunidade">Comunidade</a>
+      <a href="#apoie">Apoie o projeto</a>
+      <a href="#suporte">Suporte</a>
+    </nav>
+
     <p>© <span id="year">2026</span> Lovfy. Projeto independente.</p>
   </div>
 </footer>
+
+<!-- Voltar ao topo -->
+<button class="back-to-top" id="backToTop" aria-label="Voltar ao topo" type="button">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"></path><path d="M5 12l7-7 7 7"></path></svg>
+</button>
 
 <script src="script.js"></script>
 </body>

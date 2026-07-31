@@ -2,7 +2,32 @@
    Lovfy — Landing Page
    Design system: branco predominante, laranja da marca (#FF6706) como
    destaque, neutros de apoio. Tipografia Inter. Estilo SaaS premium.
+
+   Índice:
+   1. Tokens (custom properties)
+   2. Reset / base
+   3. Layout utilitário (container, grid, divider, badges)
+   4. Header + navegação
+   5. Botões e links
+   6. Hero
+   7. Contador de downloads + badges de confiança
+   8. Seções genéricas (cards de benefícios)
+   9. Vídeo / VSL
+   10. Como instalar (steps + callouts)
+   11. Por que utilizar (checklist)
+   12. Depoimentos
+   13. FAQ (accordion)
+   14. Suporte
+   15. Comunidade
+   16. Apoie o projeto
+   17. CTA final
+   18. Footer
+   19. Voltar ao topo + barra de carregamento
+   20. Animação de entrada (reveal)
+   21. Responsivo
    ========================================================================== */
+
+/* ---------------------------------- 1. Tokens ---------------------------------- */
 
 :root {
   --white: #ffffff;
@@ -30,6 +55,8 @@
   --ease: cubic-bezier(.4, 0, .2, 1);
 }
 
+/* ---------------------------------- 2. Reset / base ---------------------------------- */
+
 * { box-sizing: border-box; }
 html {
   scroll-behavior: smooth;
@@ -52,7 +79,6 @@ section[id], main[id] {
   scroll-margin-top: var(--header-h);
 }
 
-/* Focus visibility for accessibility */
 a:focus-visible,
 button:focus-visible {
   outline: 2px solid var(--orange);
@@ -74,13 +100,45 @@ button:focus-visible {
   left: 0;
 }
 
+/* ---------------------------------- 3. Layout utilitário ---------------------------------- */
+
 .container {
   max-width: var(--container);
   margin: 0 auto;
   padding: 0 24px;
 }
+.container--narrow {
+  max-width: 760px;
+}
 
-/* ---------------------------------- Header ---------------------------------- */
+.grid { display: grid; gap: 24px; }
+.grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+.divider {
+  display: block;
+  width: 44px;
+  height: 3px;
+  margin: 18px auto 22px;
+  background: var(--orange);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  font-size: .82rem;
+  font-weight: 600;
+  border-radius: 999px;
+  max-width: 100%;
+}
+.badge--muted {
+  background: var(--bg-alt);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+
+/* ---------------------------------- 4. Header ---------------------------------- */
 
 .header {
   position: sticky;
@@ -149,7 +207,7 @@ button:focus-visible {
 .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
 .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* ---------------------------------- Buttons ---------------------------------- */
+/* ---------------------------------- 5. Botões e links ---------------------------------- */
 
 .btn {
   display: inline-flex;
@@ -187,7 +245,7 @@ button:focus-visible {
   border-color: var(--black);
 }
 
-/* ---------------------------------- Hero ---------------------------------- */
+/* ---------------------------------- 6. Hero ---------------------------------- */
 
 .hero {
   position: relative;
@@ -247,7 +305,53 @@ button:focus-visible {
   justify-content: center;
 }
 
-/* ---------------------------------- Sections ---------------------------------- */
+/* ---------------------------------- 7. Contador + badges de confiança ---------------------------------- */
+
+.trust {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-soft);
+  padding: 40px 0;
+}
+.trust__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.counter {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.counter__number {
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--orange);
+}
+.counter__number::before { content: "+"; }
+.counter__label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+.badges {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.badges .badge {
+  background: var(--white);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+.badges .badge svg { color: var(--orange); flex-shrink: 0; }
+
+/* ---------------------------------- 8. Seções genéricas ---------------------------------- */
 
 .section {
   padding: 112px 0;
@@ -264,17 +368,11 @@ button:focus-visible {
   font-size: clamp(1.8rem, 2vw + 1.2rem, 2.5rem);
   font-weight: 800;
   letter-spacing: -0.02em;
-  margin-bottom: 16px;
 }
 .section__head p {
   color: var(--text-secondary);
   font-size: 1.05rem;
 }
-
-/* Grid / Cards */
-
-.grid { display: grid; gap: 24px; }
-.grid--4 { grid-template-columns: repeat(4, 1fr); }
 
 .card {
   background: var(--white);
@@ -310,53 +408,146 @@ button:focus-visible {
   font-size: .95rem;
 }
 
-/* Steps */
+/* ---------------------------------- 9. Vídeo / VSL ---------------------------------- */
 
-.steps {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  counter-reset: step;
+.video-frame {
+  max-width: 860px;
+  margin: 0 auto;
 }
-.step {
+.video-placeholder {
   position: relative;
-  text-align: center;
-  padding: 0 12px;
-}
-.step:not(:last-child)::after {
-  content: "";
-  position: absolute;
-  top: 22px;
-  left: calc(50% + 46px);
-  width: calc(100% - 68px);
-  height: 1px;
-  background: var(--border);
-}
-.step__number {
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  margin: 0 auto 20px;
-  font-weight: 700;
+  gap: 16px;
+  aspect-ratio: 16 / 9;
+  background: var(--black);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.video-placeholder::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 40%, rgba(255, 103, 6, .18), transparent 60%);
+}
+.video-placeholder__play {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  height: 68px;
   color: var(--white);
   background: var(--orange);
   border-radius: 999px;
+  box-shadow: 0 0 0 0 rgba(255, 103, 6, .5);
+  animation: pulse-ring 2.4s ease-out infinite;
+}
+.video-placeholder__play svg { margin-left: 3px; }
+.video-placeholder__title {
   position: relative;
-  z-index: 1;
-}
-.step h3 {
-  font-size: 1.05rem;
+  color: var(--white);
   font-weight: 700;
-  margin-bottom: 8px;
-}
-.step p {
-  color: var(--text-secondary);
-  font-size: .92rem;
+  font-size: 1.15rem;
 }
 
-/* Por que utilizar */
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(255, 103, 6, .45); }
+  70% { box-shadow: 0 0 0 22px rgba(255, 103, 6, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 103, 6, 0); }
+}
+
+/* ---------------------------------- 10. Como instalar ---------------------------------- */
+
+.install-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+.install-step {
+  position: relative;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 28px 24px;
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+.install-step:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.install-step__number {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: .8rem;
+  font-weight: 700;
+  color: var(--border);
+}
+.install-step__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  color: var(--white);
+  background: var(--orange);
+  border-radius: var(--radius-sm);
+  margin-bottom: 20px;
+}
+.install-step h3 {
+  font-size: 1.02rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+.install-step p {
+  color: var(--text-secondary);
+  font-size: .9rem;
+}
+
+.install-done {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 48px;
+}
+
+.callouts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 20px 24px;
+  background: var(--orange-soft);
+  border-radius: var(--radius-md);
+}
+.callout svg {
+  flex-shrink: 0;
+  color: var(--orange-dark);
+  margin-top: 2px;
+}
+.callout p {
+  font-size: .95rem;
+  color: var(--text);
+}
+.callout a {
+  color: var(--orange-dark);
+  font-weight: 600;
+  border-bottom: 1px solid currentColor;
+}
+
+/* ---------------------------------- 11. Por que utilizar ---------------------------------- */
 
 .why {
   display: grid;
@@ -385,16 +576,189 @@ button:focus-visible {
   gap: 14px;
   font-weight: 500;
   padding: 16px 20px;
-  background: var(--bg-soft);
+  background: var(--white);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
+  transition: transform .2s var(--ease), box-shadow .2s var(--ease);
+}
+.checklist li:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-sm);
 }
 .checklist svg {
   flex-shrink: 0;
   color: var(--orange);
 }
 
-/* Apoie o projeto */
+/* ---------------------------------- 12. Depoimentos ---------------------------------- */
+
+.grid--testimonials {
+  align-items: stretch;
+}
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 32px 28px;
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease), border-color .25s var(--ease);
+}
+.testimonial:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: transparent;
+}
+.testimonial__stars {
+  display: flex;
+  gap: 3px;
+  color: var(--orange);
+}
+.testimonial blockquote {
+  margin: 0;
+  font-size: .98rem;
+  line-height: 1.65;
+  color: var(--text);
+  flex-grow: 1;
+}
+.testimonial figcaption {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.testimonial__avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  font-size: .8rem;
+  font-weight: 700;
+  color: var(--orange-dark);
+  background: var(--orange-soft);
+  border-radius: 999px;
+}
+.testimonial__name {
+  font-size: .9rem;
+  font-weight: 600;
+}
+.testimonial__handle {
+  display: block;
+  font-weight: 400;
+  color: var(--text-secondary);
+  font-size: .82rem;
+}
+
+/* ---------------------------------- 13. FAQ (accordion) ---------------------------------- */
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.accordion__item {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.accordion__item h3 { margin: 0; }
+.accordion__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.accordion__chevron {
+  flex-shrink: 0;
+  color: var(--orange);
+  transition: transform .25s var(--ease);
+}
+.accordion__trigger[aria-expanded="true"] .accordion__chevron {
+  transform: rotate(180deg);
+}
+.accordion__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .3s var(--ease);
+}
+.accordion__panel.is-open {
+  grid-template-rows: 1fr;
+}
+.accordion__panel-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+.accordion__panel-inner p,
+.accordion__panel-inner ul {
+  padding: 0 24px 20px;
+  color: var(--text-secondary);
+  font-size: .95rem;
+}
+.accordion__panel-inner ul { padding-top: 4px; list-style: disc; padding-left: 44px; }
+.accordion__panel-inner li { margin-bottom: 4px; }
+.accordion__panel-inner a {
+  color: var(--orange-dark);
+  font-weight: 600;
+  border-bottom: 1px solid currentColor;
+}
+
+/* ---------------------------------- 14. Suporte ---------------------------------- */
+
+.support-simple {
+  text-align: center;
+}
+.support-simple h2 {
+  font-size: clamp(1.8rem, 2vw + 1.2rem, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+.support-simple p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  margin-bottom: 32px;
+}
+
+/* ---------------------------------- 15. Comunidade ---------------------------------- */
+
+.community {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.community__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 28px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  transition: transform .2s var(--ease), box-shadow .2s var(--ease);
+}
+.community__item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
+}
+.community__item span:first-of-type {
+  font-weight: 700;
+  color: var(--text);
+  margin-right: 4px;
+}
+
+/* ---------------------------------- 16. Apoie o projeto ---------------------------------- */
 
 .support-card {
   display: grid;
@@ -415,9 +779,10 @@ button:focus-visible {
 .support-card__text p {
   color: var(--text-secondary);
   font-size: 1.05rem;
+  margin-bottom: 12px;
 }
 .support-card__note {
-  margin-top: 20px;
+  margin-top: 16px;
   font-weight: 600;
   color: var(--text);
 }
@@ -445,7 +810,7 @@ button:focus-visible {
   color: var(--text-secondary);
 }
 
-/* CTA final */
+/* ---------------------------------- 17. CTA final ---------------------------------- */
 
 .cta-final {
   background: var(--black);
@@ -465,17 +830,17 @@ button:focus-visible {
   margin-bottom: 40px;
 }
 
-/* Footer */
+/* ---------------------------------- 18. Footer ---------------------------------- */
 
 .footer {
-  padding: 48px 0;
+  padding: 56px 0 40px;
   border-top: 1px solid var(--border);
 }
 .footer__inner {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 24px;
   text-align: center;
 }
 .footer__inner img {
@@ -483,12 +848,69 @@ button:focus-visible {
   width: auto;
   opacity: .85;
 }
+.footer__nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 24px;
+}
+.footer__nav a {
+  font-size: .88rem;
+  color: var(--text-secondary);
+  transition: color .2s var(--ease);
+}
+.footer__nav a:hover { color: var(--black); }
 .footer__inner p {
   color: var(--text-secondary);
   font-size: .9rem;
 }
 
-/* ---------------------------------- Reveal animation ---------------------------------- */
+/* ---------------------------------- 19. Voltar ao topo + loading bar ---------------------------------- */
+
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  color: var(--white);
+  background: var(--black);
+  border-radius: 999px;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  transform: translateY(12px);
+  visibility: hidden;
+  transition: opacity .25s var(--ease), transform .25s var(--ease), visibility .25s, background-color .2s var(--ease);
+}
+.back-to-top.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+.back-to-top:hover {
+  background: var(--orange);
+}
+
+.loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: var(--orange);
+  z-index: 1000;
+  transition: width .3s var(--ease), opacity .4s var(--ease);
+}
+.loading-bar.is-done {
+  width: 100%;
+  opacity: 0;
+}
+
+/* ---------------------------------- 20. Reveal animation ---------------------------------- */
 
 [data-reveal] {
   opacity: 0;
@@ -507,21 +929,28 @@ button:focus-visible {
     transform: none;
     transition: none;
   }
-  .btn--primary:hover { transform: none; }
-  .card:hover { transform: none; }
+  .btn--primary:hover,
+  .card:hover,
+  .testimonial:hover,
+  .install-step:hover,
+  .community__item:hover,
+  .checklist li:hover { transform: none; }
+  .video-placeholder__play { animation: none; }
 }
 
-/* ---------------------------------- Responsive ---------------------------------- */
+/* ---------------------------------- 21. Responsivo ---------------------------------- */
 
 @media (max-width: 1023px) {
   .grid--4 { grid-template-columns: repeat(2, 1fr); }
-  .steps { grid-template-columns: repeat(2, 1fr); row-gap: 48px; }
-  .step:nth-child(2)::after { display: none; }
+  .install-steps { grid-template-columns: repeat(2, 1fr); }
   .why { grid-template-columns: 1fr; gap: 40px; text-align: center; }
   .checklist li { justify-content: center; }
   .support-card { grid-template-columns: 1fr; text-align: center; padding: 40px; }
   .support-card__text { order: 2; }
   .support-card__qr { order: 1; }
+  .callouts { grid-template-columns: 1fr; }
+  .trust__inner { flex-direction: column; text-align: center; gap: 24px; }
+  .badges { justify-content: center; }
 }
 
 @media (max-width: 767px) {
@@ -566,11 +995,19 @@ button:focus-visible {
   .section__head { margin-bottom: 40px; }
 
   .grid--4 { grid-template-columns: 1fr; }
-  .steps { grid-template-columns: 1fr; gap: 40px; }
-  .step::after { display: none !important; }
+  .install-steps { grid-template-columns: 1fr; gap: 20px; }
 
   .support-card { padding: 32px 24px; }
   .support-card__qr img { width: 180px; height: 180px; }
 
   .cta-final { padding: 80px 0; }
+
+  .counter__number { font-size: 2rem; }
+
+  .back-to-top {
+    right: 16px;
+    bottom: 16px;
+    width: 42px;
+    height: 42px;
+  }
 }
